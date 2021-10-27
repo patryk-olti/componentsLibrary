@@ -1,9 +1,9 @@
-import Debugger from "./Pages/Debugger";
+import Aplication from "./Pages/Aplication";
 
 function App() {
   return (
     <div className="App">
-      <Debugger />
+      <Aplication />
     </div>
   );
 }
