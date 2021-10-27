@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Container from "./Container";
 
@@ -11,19 +11,26 @@ import Button from "../Components/Button";
 
 const Debugger = ({ handleClick }) => {
 
+    const [ option, setOption ] = useState("");
+    const [ name, setName ] = useState("");
+
     const optionsForSelect = [ "dom", "auto", "rozrywka" ];
+
+    const objectTmp = {
+        option
+    }
 
     return(
         <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="flex-start" width="350" padding="5" border="2px solid black">
 
             <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="flex-start" width="330" padding="5" border="none">
                 <Container display="flex" flexDirection="row" justifyContent="flex-start" alignItems="center" width="100" padding="2" border="none">
-                    <Radio name="sex" />
+                    <Radio name="sex" value="proceeds" handleClick={setOption} />
                     <Span fontSize="20" >proceeds</Span>
                 </Container>
 
                 <Container display="flex" flexDirection="row" justifyContent="flex-start" alignItems="center" width="100" padding="2" border="none">
-                    <Radio name="sex" />
+                    <Radio name="sex" value="expense" handleClick={setOption} />
                     <Span fontSize="20" >expense</Span>
                 </Container>
                 <Span fontSize="20" >error</Span>
@@ -48,8 +55,11 @@ const Debugger = ({ handleClick }) => {
                 <Button text="add" handleClick={handleClick} />
             </Container>
 
+
+            {console.log(objectTmp)}
         </Container>
         
+       
     )
 }
 

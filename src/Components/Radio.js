@@ -1,9 +1,13 @@
 import React from "react";
 
-const Radio = ({ name }) => {
+const Radio = ({ name, value, handleClick }) => {
 
     return(
-        <input type="radio" name={name} />
+        <input 
+            type="radio" 
+            name={name}
+            onClick={() => handleClick(value)}
+            />
     )
 }
 
