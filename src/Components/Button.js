@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text }) => {
+const Button = ({ text, handleClick }) => {
 
     const styles = {
         padding: '5px 15px',
@@ -13,7 +13,7 @@ const Button = ({ text }) => {
     }
 
     return(
-        <button style={styles} >
+        <button style={styles} onClick={() => handleClick({id:2, name:"lololo"})}>
             {text}
         </button>
     )

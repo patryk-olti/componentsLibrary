@@ -9,7 +9,7 @@ import NumberInput from '../Components/NumberInput';
 import Select from "../Components/Select";
 import Button from "../Components/Button";
 
-const Debugger = () => {
+const Debugger = ({ handleClick }) => {
 
     const optionsForSelect = [ "dom", "auto", "rozrywka" ];
 
@@ -45,7 +45,7 @@ const Debugger = () => {
             </Container>
 
             <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
-                <Button text="add" />
+                <Button text="add" handleClick={handleClick} />
             </Container>
 
         </Container>

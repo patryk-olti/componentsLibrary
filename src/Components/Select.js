@@ -3,7 +3,7 @@ import React from "react";
 const Select = ({ options }) => {
 
     const optionsList = options.map( item => (
-        <option value={item}> {item} </option>
+        <option key={item} value={item}> {item} </option>
     ))
 
     return(

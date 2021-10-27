@@ -1,11 +1,16 @@
 import React from "react";
 
-const Budged = () => {
+const Budged = ({ content }) => {
 
+    const contentList = content.map( item => (
+        <div key={item.id} >
+            {item.name}
+        </div>
+    ))
 
     return(
         <div>
-            elo
+            {contentList}
         </div>
     )
 }
