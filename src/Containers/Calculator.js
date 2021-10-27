@@ -14,7 +14,7 @@ const Debugger = ({ handleClick }) => {
     const [ option, setOption ] = useState("");
     const [ firstName, setFirstName ] = useState("");
     const [ price, setPrice ] = useState(0);
-    const [ select, setSelect ] = useState("auto");
+    const [ select, setSelect ] = useState("dom");
  
     const optionsForSelect = [ "dom", "auto", "rozrywka" ];
 
@@ -60,8 +60,6 @@ const Debugger = ({ handleClick }) => {
                 <Button text="add" handleClick={handleClick} />
             </Container>
 
-
-            {console.log(objectTmp)}
         </Container>
         
        
