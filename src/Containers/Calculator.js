@@ -12,12 +12,17 @@ import Button from "../Components/Button";
 const Debugger = ({ handleClick }) => {
 
     const [ option, setOption ] = useState("");
-    const [ name, setName ] = useState("");
-
+    const [ firstName, setFirstName ] = useState("");
+    const [ price, setPrice ] = useState(0);
+    const [ select, setSelect ] = useState("auto");
+ 
     const optionsForSelect = [ "dom", "auto", "rozrywka" ];
 
     const objectTmp = {
-        option
+        option,
+        firstName,
+        price,
+        select
     }
 
     return(
@@ -33,21 +38,21 @@ const Debugger = ({ handleClick }) => {
                     <Radio name="sex" value="expense" handleClick={setOption} />
                     <Span fontSize="20" >expense</Span>
                 </Container>
-                <Span fontSize="20" >error</Span>
+                <Span fontSize="20" ></Span>
             </Container>
 
             <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
-                <TextInput name="name" placeholder="name" />
+                <TextInput name="name" placeholder="name" value={firstName} handleChange={setFirstName}/>
                 <Span fontSize="18" ></Span>
             </Container>
 
             <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
-                <NumberInput name="price" placeholder="price" />
+                <NumberInput name="price" placeholder="price" value={price} handleChange={setPrice} />
                 <Span fontSize="18" ></Span>
             </Container>
 
             <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
-                <Select options={optionsForSelect} />
+                <Select options={optionsForSelect} value={select} handleChange={setSelect} />
                 <Span fontSize="18" ></Span>
             </Container>
 
