@@ -8,6 +8,7 @@ const TextInput = ({ name, placeholder, value, handleChange }) => {
         <input 
             type="text" 
             name={name} 
+            value={value}
             placeholder={placeholder} 
             onChange={handleOnChange}
         />

@@ -4,19 +4,24 @@ import Span from "../Components/Span";
 
 const SingleBudgedElement = ({ data }) => {
 
-    const colorBorder = data.select === `expense` ? 'red' : 'black';
+    const colorBorder = `${data.option}` === `expense` ? 'red' : 'green';
 
     const styles = {
+        displat:'flex',
+        justifyContent: 'space-between',
         padding: `2px`,
         width: `350px`,
-        border: `1px solid ${colorBorder}`
+        color: `${colorBorder}`,
+        span: {
+            display: 'block'
+        }
     }
 
     return(
         <div style={styles} >
-            <Span fontSize={20}> name: { data.firstName } </Span>
-            <Span fontSize={16}> price: { data.price }zł</Span>
-            <Span> purpose: { data.select }</Span>
+            <Span fontSize={20} style={styles.span}> { data.firstName } </Span>
+            <Span fontSize={16} style={styles.span}> { data.price }zł</Span>
+            <Span style={styles.span}> { data.select }</Span>
         </div>
     )
 }

@@ -17,7 +17,6 @@ const Aplication = () => {
         <>
             <Calculator handleClick={addToBudged} nextId={nextId} />
             <Budged content={budgedList} />
-            {console.log(budgedList)}
         </>
     )
 }

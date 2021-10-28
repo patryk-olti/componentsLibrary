@@ -16,7 +16,7 @@ const Debugger = ({ handleClick, nextId }) => {
     const [ price, setPrice ] = useState(0);
     const [ select, setSelect ] = useState("dom");
  
-    const optionsForSelect = [ "dom", "auto", "rozrywka" ];
+    const optionsForSelect = [ "dom", "auto", "rozrywka", "praca", "praca dodatkowa" ];
 
     const objectTmp = {
         id: nextId,
@@ -34,7 +34,7 @@ const Debugger = ({ handleClick, nextId }) => {
 
         if(approve){ 
             handleClick(objectTmp); 
-            setOption("");
+            setOption("proceeds");
             setFirstName("");
             setPrice(0);
             setSelect("dom");
