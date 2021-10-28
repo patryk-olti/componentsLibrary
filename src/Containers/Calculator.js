@@ -11,7 +11,13 @@ import Button from "../Components/Button";
 
 const Debugger = ({ handleClick, nextId }) => {
 
-    const [ total, setTotal] = useState(3000);
+    const getTotal = () => {
+        if( localStorage.getItem("total") == 0){
+            return 3000;
+        }else return Number(JSON.parse(localStorage.getItem("total")));
+    }
+
+    const [ total, setTotal] = useState(getTotal());
 
     const totalChange = (option, value) => {
         if(option==`proceeds`) return setTotal(prev => prev + Number(value));
@@ -53,6 +59,8 @@ const Debugger = ({ handleClick, nextId }) => {
 
         if(approve){ 
             handleClick(objectTmp); 
+            localStorage.removeItem('total');
+            localStorage.setItem('total', JSON.stringify(total));
             totalChange(option,price);
             setOption("");
             setFirstName("");
@@ -102,6 +110,10 @@ const Debugger = ({ handleClick, nextId }) => {
 
             <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
                 <Button text="add" handleClick={validateObject} />
+            </Container>
+
+            <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
+                <Button text="clear storage" handleClick={() => localStorage.clear()} />
             </Container>
 
         </Container>

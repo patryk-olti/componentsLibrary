@@ -7,7 +7,7 @@ const Radio = ({ name, value, handleClick, option }) => {
             type="radio" 
             name={name}
             checked={ option==value ? true : false }
-            onClick={() => handleClick(value)}
+            onChange={() => handleClick(value)}
             />
     )
 }
