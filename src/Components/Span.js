@@ -1,9 +1,11 @@
 import React from "react";
 
-const Span = ({ children, fontSize }) => {
+const Span = ({ children, fontSize, color }) => {
 
     const styles = {
-        fontSize: `${fontSize}px`
+        padding: `2px`,
+        fontSize: `${fontSize}px`,
+        color: `${color}`
     }
 
     return(

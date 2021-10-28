@@ -15,6 +15,9 @@ const Debugger = ({ handleClick, nextId }) => {
     const [ firstName, setFirstName ] = useState("");
     const [ price, setPrice ] = useState(0);
     const [ select, setSelect ] = useState("dom");
+
+    const [ firstNameError, setFirstNameError ] = useState("");
+    const [ priceError, setPriceError ] = useState("");
  
     const optionsForSelect = [ "dom", "auto", "rozrywka", "praca", "praca dodatkowa" ];
 
@@ -28,9 +31,18 @@ const Debugger = ({ handleClick, nextId }) => {
 
     const validateObject = () => {
         let approve = true;
+        setFirstNameError("");
+        setPriceError("");
+
         if(option.length === ""){ approve = false; }
-        if(firstName.length === 0){ approve = false; }
-        if(price <= 0){ approve = false; }
+        if(firstName.length === 0){ 
+            approve = false; 
+            setFirstNameError('błędnie wpisane imię!');
+        }
+        if(price <= 0){ 
+            approve = false; 
+            setPriceError('wartość poniżej 0!');
+        }
 
         if(approve){ 
             handleClick(objectTmp); 
@@ -38,13 +50,15 @@ const Debugger = ({ handleClick, nextId }) => {
             setFirstName("");
             setPrice(0);
             setSelect("dom");
+            setFirstNameError("");
+            setPriceError("");
 
             console.log(objectTmp);
         }
     }
 
     return(
-        <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="flex-start" width="350" padding="5" border="2px solid black">
+        <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="flex-start" width="250" padding="5" border="2px solid black">
 
             <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="flex-start" width="330" padding="5" border="none">
                 <Container display="flex" flexDirection="row" justifyContent="flex-start" alignItems="center" width="100" padding="2" border="none">
@@ -59,22 +73,22 @@ const Debugger = ({ handleClick, nextId }) => {
                 <Span fontSize="20" ></Span>
             </Container>
 
-            <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
+            <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
                 <TextInput name="name" placeholder="name" value={firstName} handleChange={setFirstName}/>
-                <Span fontSize="18" ></Span>
+                <Span fontSize="12" color='red' >{firstNameError}</Span>
             </Container>
 
-            <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
+            <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
                 <NumberInput name="price" placeholder="price" value={price} handleChange={setPrice} />
-                <Span fontSize="18" ></Span>
+                <Span fontSize="12" color='red' >{priceError}</Span>
             </Container>
 
-            <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
+            <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
                 <Select options={optionsForSelect} value={select} handleChange={setSelect} />
                 <Span fontSize="18" ></Span>
             </Container>
 
-            <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
+            <Container display="flex" flexDirection="column" justifyContent="space-between" alignItems="center" width="200" padding="2" border="none">
                 <Button text="add" handleClick={validateObject} />
             </Container>
 
