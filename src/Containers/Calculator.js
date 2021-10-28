@@ -9,7 +9,7 @@ import NumberInput from '../Components/NumberInput';
 import Select from "../Components/Select";
 import Button from "../Components/Button";
 
-const Debugger = ({ handleClick }) => {
+const Debugger = ({ handleClick, nextId }) => {
 
     const [ option, setOption ] = useState("");
     const [ firstName, setFirstName ] = useState("");
@@ -19,10 +19,28 @@ const Debugger = ({ handleClick }) => {
     const optionsForSelect = [ "dom", "auto", "rozrywka" ];
 
     const objectTmp = {
+        id: nextId,
         option,
         firstName,
         price,
         select
+    }
+
+    const validateObject = () => {
+        let approve = true;
+        if(option.length === ""){ approve = false; }
+        if(firstName.length === 0){ approve = false; }
+        if(price <= 0){ approve = false; }
+
+        if(approve){ 
+            handleClick(objectTmp); 
+            setOption("");
+            setFirstName("");
+            setPrice(0);
+            setSelect("dom");
+
+            console.log(objectTmp);
+        }
     }
 
     return(
@@ -57,7 +75,7 @@ const Debugger = ({ handleClick }) => {
             </Container>
 
             <Container display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" width="100" padding="2" border="none">
-                <Button text="add" handleClick={handleClick} />
+                <Button text="add" handleClick={validateObject} />
             </Container>
 
         </Container>

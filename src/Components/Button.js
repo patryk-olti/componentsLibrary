@@ -13,7 +13,7 @@ const Button = ({ text, handleClick }) => {
     }
 
     return(
-        <button style={styles} onClick={() => handleClick({id:2, name:"lololo"})}>
+        <button style={styles} onClick={() => handleClick()}>
             {text}
         </button>
     )

@@ -1,11 +1,11 @@
 import React from "react";
 
+import SingleBudgedElement from "./SingleBudgedElement";
+
 const Budged = ({ content }) => {
 
     const contentList = content.map( item => (
-        <div key={item.id} >
-            {item.name}
-        </div>
+        <SingleBudgedElement key={item.id} data={item} />
     ))
 
     return(
